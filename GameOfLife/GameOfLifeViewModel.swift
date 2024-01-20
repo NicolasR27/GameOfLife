@@ -23,9 +23,33 @@ class GameOfLifeViewModel: ObservableObject {
         grid = Array(repeating: Array(repeating: Cell(isAlive: false), count: 10), count: 10)
     }
 
+    func setInitialSeed() {
+        let predefinedSeed = [
+            [false, false, false, false, false, false, false, false, false, false],
+            [false, false, false, false, false, false, false, false, false, false],
+            [false, false, false, false, false, false, false, false, false, false],
+            [false, false, false, false, false, false, false, false, false, false],
+            [false, false, false, true, true, true, false, false, false, false],
+            [false, false, false, false, false, false, false, false, false, false],
+            [false, false, false, false, false, false, false, false, false, false],
+            [false, false, false, false, false, false, false, false, false, false],
+            [false, false, false, false, false, false, false, false, false, false],
+            [false, false, false, false, false, false, false, false, false, false]
+        ]
+
+
+        for row in 0..<min(grid.count, predefinedSeed.count) {
+            for column in 0..<min(grid[row].count, predefinedSeed[row].count) {
+                grid[row][column].isAlive = predefinedSeed[row][column]
+            }
+        }
+    }
+
+
     func toggleCellState(at row: Int, column: Int) {
         grid[row][column].isAlive.toggle()
     }
+    
 
     func nextGeneration() {
         var nextGrid = grid
@@ -73,3 +97,5 @@ class GameOfLifeViewModel: ObservableObject {
         return count
     }
 }
+
+
