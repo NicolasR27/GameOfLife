@@ -12,6 +12,7 @@ struct GameView: View {
     @State private var isGlowing = false
     @State private var generationCount = 0
 
+
     var body: some View {
         NavigationView {
             VStack {
@@ -33,26 +34,32 @@ struct GameView: View {
                     Spacer()
                 }
                 Spacer()
+               
+                Button(action: {
+                    // Implement a function to set the initial seed
+                    viewModel.setInitialSeed()
+                    generationCount = 0
+                }) {
+                    Text("Set Initial Seed")
+                        .padding()
+                        .background(Color.green)
+                        .foregroundColor(.white)
+                        .cornerRadius(20)
+                }
+
                 Button(action: {
                     viewModel.nextGeneration()
                     generationCount += 1
                 }) {
+                    Text("Next Generation (\(generationCount))")
+                        .padding()
+                        .background(Color.blue)
+                        .foregroundColor(.white)
+                        .cornerRadius(20)
+                }
 
-                    Button(action: {
-                        viewModel.setInitialSeed()
-                        generationCount = 0
-                    }) {
-                        Text("Set Initial Seed")
-                            .padding()
-                            .background(Color.green)
-                            .foregroundColor(.white)
-                            .cornerRadius(20)
-                        Text("Next Generation (\(generationCount))")
-                            .padding()
-                            .background(Color.blue)
-                            .foregroundColor(.white)
-                            .cornerRadius(20)
-                    }
+
+                Spacer()
                     .navigationBarTitle("Game Of Life")
                     .navigationBarTitleDisplayMode(.inline)
                 }
@@ -60,7 +67,6 @@ struct GameView: View {
             .padding()
         }
     }
-}
 
 #Preview {
     GameView()
