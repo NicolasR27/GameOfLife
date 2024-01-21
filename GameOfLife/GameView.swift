@@ -45,10 +45,11 @@ struct GameView: View {
                     generationCount = 0
                 }) {
                     Text("Set Initial Seed")
-                        .padding()
+                        .padding(12)
                         .background(Color.purple)
-                        .foregroundColor(.black)
-                        .cornerRadius(20)
+                        .foregroundColor(.white)
+                        .cornerRadius(8)
+                        .bold()
                 }
                 // Button to calculate and display the next generation
                 Button(action: {
@@ -56,15 +57,20 @@ struct GameView: View {
                     generationCount += 1
                 }) {
                     Text("Next Generation(\(generationCount))")
-                        .padding()
+                        .padding(12)
                         .background(Color.purple)
-                        .foregroundColor(.black)
-                        .cornerRadius(20)
+                        .foregroundColor(.white)
+                        .cornerRadius(8)
+                        .bold()
+
+
                 }
                 // Apply navigation bar styling
                 Spacer()
                     .navigationBarTitle("Game Of Life")
                     .navigationBarTitleDisplayMode(.inline)
+                    
+
             }
         }
         // Apply padding to the entire view
