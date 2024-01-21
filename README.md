@@ -20,3 +20,8 @@ The final product of the exercise should include:
 3. A UI affordance for advancing the game one generation at a time.
 4. The grid must be at least 10 columns and 10 rows.
 The exercise should be completed as a working iOS app.
+
+### TODO:
+- [ ] Add Screen to show Rules of Game and How it Works.
+- [ ] Add Welcome Screen 
+- [ ] Add Tests for Game Logic 
