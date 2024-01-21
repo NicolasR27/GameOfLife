@@ -54,8 +54,8 @@
 			isa = PBXGroup;
 			children = (
 				3E739E6D2B5AE85C00BAF380 /* GameOfLifeApp.swift */,
-				3E739E6F2B5AE85C00BAF380 /* GameView.swift */,
-				3E739E7B2B5AFBE600BAF380 /* GameOfLifeViewModel.swift */,
+				3ED267232B5DD7EB00FFC059 /* MainScreen */,
+				3ED267242B5DD7FD00FFC059 /* ViewModel */,
 				3E739E712B5AE85D00BAF380 /* Assets.xcassets */,
 				3E739E732B5AE85D00BAF380 /* Preview Content */,
 			);
@@ -68,6 +68,22 @@
 				3E739E742B5AE85D00BAF380 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		3ED267232B5DD7EB00FFC059 /* MainScreen */ = {
+			isa = PBXGroup;
+			children = (
+				3E739E6F2B5AE85C00BAF380 /* GameView.swift */,
+			);
+			path = MainScreen;
+			sourceTree = "<group>";
+		};
+		3ED267242B5DD7FD00FFC059 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				3E739E7B2B5AFBE600BAF380 /* GameOfLifeViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
