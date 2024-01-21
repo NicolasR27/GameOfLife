@@ -63,11 +63,13 @@ struct GameView: View {
                         .cornerRadius(8)
                         .bold()
 
+
                 }
                 // Apply navigation bar styling
                 Spacer()
                     .navigationBarTitle("Game Of Life")
                     .navigationBarTitleDisplayMode(.inline)
+                    
 
             }
         }
