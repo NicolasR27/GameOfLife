@@ -69,7 +69,7 @@ struct GameView: View {
                     .navigationBarTitle("Game Of Life")
                     .navigationBarTitleDisplayMode(.inline)
 
-            }
+           }
         }
         // Apply padding to the entire view
         .padding()

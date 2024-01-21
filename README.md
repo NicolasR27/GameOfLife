@@ -24,4 +24,4 @@ The exercise should be completed as a working iOS app.
 ### TODO:
 - [ ] Add Screen to show Rules of Game and How it Works.
 - [ ] Add Welcome Screen 
-- [ ] Add Tests for Game Logic 
+
