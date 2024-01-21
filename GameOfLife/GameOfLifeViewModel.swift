@@ -18,11 +18,20 @@ class GameOfLifeViewModel: ObservableObject {
     @Published var grid: [[Cell]]
 
     private var cancellables = Set<AnyCancellable>()
+    private let numberOfRows = 10
+    private let numberOfColums = 10
 
     init() {
-        grid = Array(repeating: Array(repeating: Cell(isAlive: false), count: 10), count: 10)
+        // Initialize the grid with dead cells
+        grid = Array(repeating: Array(repeating: Cell(isAlive: false), count: numberOfColums), count: numberOfRows)
     }
 
+    deinit {
+        // Cancel any Combine subscriptions when the object is deallocated
+        cancellables.forEach { $0.cancel() }
+    }
+
+    // Set the initial seed pattern for the grid
     func setInitialSeed() {
         let predefinedSeed = [
             [false, false, false, false, false, false, false, false, false, false],
@@ -31,13 +40,9 @@ class GameOfLifeViewModel: ObservableObject {
             [false, false, false, false, false, false, false, false, false, false],
             [false, false, false, true, true, true, false, false, false, false],
             [false, false, false, false, false, false, false, false, false, false],
-            [false, false, false, false, false, false, false, false, false, false],
-            [false, false, false, false, false, false, false, false, false, false],
-            [false, false, false, false, false, false, false, false, false, false],
-            [false, false, false, false, false, false, false, false, false, false]
+
         ]
-
-
+        // Apply the predefined seed pattern to the grid
         for row in 0..<min(grid.count, predefinedSeed.count) {
             for column in 0..<min(grid[row].count, predefinedSeed[row].count) {
                 grid[row][column].isAlive = predefinedSeed[row][column]
@@ -45,12 +50,12 @@ class GameOfLifeViewModel: ObservableObject {
         }
     }
 
-
+    // Toggle the state of a cell at the specified row and column
     func toggleCellState(at row: Int, column: Int) {
         grid[row][column].isAlive.toggle()
     }
-    
 
+    // Calculate the next generation of the grid based on the rules of the Game of Life
     func nextGeneration() {
         var nextGrid = grid
 
@@ -70,10 +75,10 @@ class GameOfLifeViewModel: ObservableObject {
                 }
             }
         }
-
+        // Update the grid to the next generation
         grid = nextGrid
     }
-
+    // Count the number of live neighbors for a given cell
     private func countLiveNeighbors(row: Int, column: Int) -> Int {
         var count = 0
 
@@ -81,7 +86,7 @@ class GameOfLifeViewModel: ObservableObject {
             for j in -1...1 {
                 let neighborRow = row + i
                 let neighborColumn = column + j
-
+                // Check if the neighbor is within bounds and alive
                 if neighborRow >= 0 && neighborRow < grid.count && neighborColumn >= 0 && neighborColumn < grid[row].count {
                     if grid[neighborRow][neighborColumn].isAlive {
                         count += 1
@@ -89,7 +94,7 @@ class GameOfLifeViewModel: ObservableObject {
                 }
             }
         }
-
+        // Subtract 1 if the current cell is alive to avoid counting itself
         if grid[row][column].isAlive {
             count -= 1
         }
