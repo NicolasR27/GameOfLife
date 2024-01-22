@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MainScreen: View {
+    
     var body: some View {
         NavigationView {
             TabView {
@@ -23,7 +24,6 @@ struct MainScreen: View {
                 NavigationView {
                     GameInfoView()
                         .padding()
-                        .navigationBarTitle("Info")
                 }
                 .tabItem {
                     Label("Info", systemImage: "info")
@@ -33,6 +33,7 @@ struct MainScreen: View {
         }
     }
 }
+
 #Preview {
     MainScreen()
 }
