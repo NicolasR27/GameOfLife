@@ -15,7 +15,6 @@ struct GameView: View {
     @State private var generationCount = 0
 
     var body: some View {
-        NavigationStack {
             VStack {
                 ForEach(viewModel.grid.indices, id: \.self) { row in
                     HStack {
@@ -71,10 +70,8 @@ struct GameView: View {
 
            }
         }
-        // Apply padding to the entire view
-        .padding()
     }
-}
+
 
 #Preview {
     GameView()
