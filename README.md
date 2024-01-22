@@ -21,7 +21,6 @@ The final product of the exercise should include:
 4. The grid must be at least 10 columns and 10 rows.
 The exercise should be completed as a working iOS app.
 
-### TODO:
-- [ ] Add Screen to show Rules of Game and How it Works.
+
 
 
